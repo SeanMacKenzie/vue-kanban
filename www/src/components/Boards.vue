@@ -1,7 +1,7 @@
 <template>
   <div class="jumbotron">
     <div class="container">
-
+      <h1>Kanban!</h1>
       <button @click="logout" class="btn btn-default pull">Logout</button>
       <button @click="createBoard" class="btn btn-info">Add Board</button>
       <ul>
@@ -42,11 +42,14 @@
   }
 </script>
 
-<style scoped>
+<style>
   .jumbotron {
-    display: flex;
     height: 300px;
     border-top: 0;
-    margin-top: 0
+    margin-top: 0;
+  }
+
+  .container {
+    width: 100%;
   }
 </style>
