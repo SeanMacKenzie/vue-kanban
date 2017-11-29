@@ -1,6 +1,7 @@
 <template>
   <div> 
     Active Board: {{board}}
+    
   </div>
 </template>
 
