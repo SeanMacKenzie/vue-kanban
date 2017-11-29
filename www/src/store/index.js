@@ -1,6 +1,7 @@
 import axios from 'axios'
 import vue from 'vue'
 import vuex from 'vuex'
+import router from '../router'
 
 let api = axios.create({
   baseURL: 'http://localhost:3000/api/',
@@ -19,9 +20,14 @@ var store = new vuex.Store({
   state: {
     boards: [{ name: 'This is total rubbish' }],
     activeBoard: {},
-    error: {}
+    error: {},
+    user: {}
   },
   mutations: {
+    setUser(state, user) {
+      state.user = user
+    },
+
     setBoards(state, data) {
       state.boards = data
     },
@@ -31,11 +37,47 @@ var store = new vuex.Store({
   },
   actions: {
     //when writing your auth routes (login, logout, register) be sure to use auth instead of api for the posts
-    login({ commit, dispatch }, user) {
-      console.log(user)
+
+    //AUTH
+    submitLogin({ commit, dispatch }, user) {
       auth.post('login', user)
         .then(res => {
-          console.log(res)
+          commit('setUser', res.data.data)
+          router.push({name: 'Boards'})
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+
+    logout({ commit, dispatch }){
+      auth.delete('logout')
+        .then(res => {
+          
+          commit('setUser', {})
+          router.push({name: 'Login'})
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+
+    authenticate({ commit, dispatch }) {
+      auth('authenticate',)
+        .then(res => {
+          commit('setUser', res.data.data)
+          router.push({name: 'Boards'})
+        })
+        .catch(() => {
+          router.push({name: 'Login'})
+        })
+    },
+
+    submitRegister({ commit, dispatch }, newUser) {
+      auth.post('register', newUser)
+        .then(res => {
+          commit('setUser', res.data.data)
+          router.push({ name: 'Boards'})
         })
         .catch(err => {
           commit('handleError', err)

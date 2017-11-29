@@ -1,15 +1,11 @@
 <template>
   <div id="app">
-    <form @submit.prevent="login">
-      <input type="text" placeholder="Email" v-model="user.email">
-      <input type="text" placeholder="Password" v-model="user.password">
-      <button type="submit">Login</button>
-    </form>
-
-    </form>
     <error></error>
     <router-view></router-view>
   </div>
+
+
+
 </template>
 
 <script>
@@ -18,12 +14,12 @@
     name: 'app',
     data() {
       return {
-        user: {}
+        
       }
     },
-    
     mounted() {
       //dispatch authenticate
+      this.$store.dispatch('authenticate')
     },
 
     components: {
@@ -31,11 +27,7 @@
     },
 
     methods: {
-      login() {
-        console.log(this.user)
-        this.$store.dispatch('login', this.user)
-      }
-
+      
     },
 
     computed: {
