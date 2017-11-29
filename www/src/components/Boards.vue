@@ -22,7 +22,7 @@
       <ul>
         <li v-for="board in boards">
           <router-link :to="'/boards/'+board._id">{{board.name}}</router-link>
-          <span @click="removeBoard(board)">x</span>
+          <span @click="removeBoard(board)" class="glyphicon glyphicon-trash"></span>
         </li>
       </ul>
     </div>

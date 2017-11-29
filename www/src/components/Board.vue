@@ -1,7 +1,10 @@
 <template>
-  <div> 
-    Active Board: {{board}}
-    
+  <div class="container"> 
+    <div class="row">
+      <div class="col-m-6">{{board.name}}</div>
+      <div class="col-m-6">{{board.description}}</div>
+      <div class="col-m-6">{{board.created}}</div>
+    </div>
   </div>
 </template>
 
