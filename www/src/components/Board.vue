@@ -34,15 +34,13 @@
         <div v-for="list in lists" class="panel panel-default">
           <list :name="list.name" :description="list.description" class="panel-body"></list>
 
-<<<<<<< HEAD
-    </div>
-    <div class="row text-center">
-      <div v-for="list in lists" class="col-md-4 panel panel-default">
-        <list :name="list.name" :description="list.description" :listId="list._id"></list>
-=======
         </div>
->>>>>>> a450d594830eb23aba0ae48279ed8ec146aecb2b
+        <div class="row text-center">
+          <div v-for="list in lists" class="col-md-4 panel panel-default">
+            <list :name="list.name" :description="list.description" :listId="list._id"></list>
 
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -118,7 +116,8 @@
     margin-top: 0px;
     padding-top: 0px;
   }
-  .jumbotron{
+
+  .jumbotron {
     height: 100px
   }
 </style>
