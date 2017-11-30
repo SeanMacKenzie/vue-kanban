@@ -150,6 +150,19 @@ var store = new vuex.Store({
           commit('handleError', err)
         })
     },
+    removeList({ commit, dispatch }, payload) {
+      api.delete('lists/' + payload.listId)
+        .then(res => {
+          debugger
+          dispatch('getLists', payload.boardId)
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+
+
+    //error
     handleError({ commit, dispatch }, err) {
       commit('handleError', err)
     }
