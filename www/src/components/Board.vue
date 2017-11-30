@@ -35,12 +35,7 @@
           <list :name="list.name" :description="list.description" class="panel-body"></list>
 
         </div>
-        <div class="row text-center">
-          <div v-for="list in lists" class="col-md-4 panel panel-default">
-            <list :name="list.name" :description="list.description" :listId="list._id"></list>
 
-          </div>
-        </div>
       </div>
     </div>
   </div>
