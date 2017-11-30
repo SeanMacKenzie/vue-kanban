@@ -27,7 +27,6 @@
       </ul>
     </div>
   </div>
-
 </template>
 
 <script>
@@ -69,5 +68,14 @@
   }
 </script>
 
-<style scoped>
+<style>
+  .jumbotron {
+    height: 300px;
+    border-top: 0;
+    margin-top: 0;
+  }
+
+  .container {
+    width: 100%;
+  }
 </style>
