@@ -112,7 +112,8 @@
     margin-top: 0px;
     padding-top: 0px;
   }
-  .jumbotron{
+
+  .jumbotron {
     height: 100px
   }
 </style>

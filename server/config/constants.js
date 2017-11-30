@@ -14,13 +14,14 @@ const models = {
   },
   list: {
     name: 'List',
-    endpoint: 'lists'
+    endpoint: 'lists',
+    
   },
-  // task: {
-  //   name: 'Task',
-  //   endpoint: 'tasks',
-  //   useCustomRoutes: true
-  // },
+  task: {
+    name: 'Task',
+    endpoint: 'tasks',
+    
+  },
   user: {
     name: 'User',
     endpoint: 'users',
