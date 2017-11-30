@@ -20,6 +20,7 @@ var store = new vuex.Store({
   state: {
     boards: [],
     activeBoard: {},
+    activeLists: [],
     error: {},
     user: {}
   },
@@ -30,6 +31,10 @@ var store = new vuex.Store({
 
     setBoards(state, data) {
       state.boards = data
+    },
+    setLists(state, data) {
+      console.log('inside setlists', data)
+      state.activeLists = data
     },
     handleError(state, err) {
       state.error = err
@@ -120,6 +125,26 @@ var store = new vuex.Store({
       api.delete('boards/' + board._id)
         .then(res => {
           dispatch('getBoards')
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+    //List stuff
+    getLists({ commit, dispatch }, boardId) {
+      api('boards/' + boardId + '/lists')
+        .then(res => {
+          // console.log("inside getlists:", res)
+          commit('setLists', res.data.data)
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+    submitList({ commit, dispatch }, newList) {
+      api.post('lists/', newList)
+        .then(res => {
+          dispatch('getLists', newList.boardId)
         })
         .catch(err => {
           commit('handleError', err)
