@@ -10,6 +10,7 @@
       </div>
       <div class="row text-center">
         <h1>{{board.name}}</h1>
+        <h3>{{board.description}}</h3>
         <div v-if="listForm" class="listForm">
           <form class="form" @submit.prevent="submitList">
             <div class="form-group">
@@ -21,16 +22,16 @@
               <input class="form-control" type="text" name="description" v-model='newList.description'>
             </div>
             <div class="form-group">
-              <button type="submit">Create list</button>
+              <button type="submit" class="btn btn-success">Create list</button>
             </div>
           </form>
         </div>
         <div v-else class="register">
         </div>
-        <p v-if="listForm" @click="toggleListForm" class="action">Cancel</p>
-        <p v-else @click="toggleListForm" class="action">Add a List</p>
+        <p v-if="listForm" @click="toggleListForm" class="action btn btn-danger">Cancel</p>
+        <p v-else @click="toggleListForm" class="action btn btn-info">Add a List</p>
       </div>
-      <div class="row text-center">
+      <div class="row text-center" style="text-overflow:ellipsis">
         <div v-for="list in lists" class="panel panel-default">
           <list :list="list" class="panel-body"></list>
 
@@ -87,7 +88,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .action {
     cursor: pointer;
     opacity: .7;
@@ -99,12 +100,13 @@
   }
 
   .panel {
+    text-overflow: ellipsis;
     display: inline-flex;
     text-align: center;
     justify-content: center;
     margin-inline-end: 5px;
     height: 400px;
-    width: 200px
+    width: 200px;
   }
 
   .container {
