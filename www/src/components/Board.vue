@@ -31,7 +31,7 @@
         <p v-if="listForm" @click="toggleListForm" class="action btn btn-danger">Cancel</p>
         <p v-else @click="toggleListForm" class="action btn btn-info">Add a List</p>
       </div>
-      <div class="row text-center">
+      <div class="row text-center" style="text-overflow:ellipsis">
         <div v-for="list in lists" class="panel panel-default">
           <list :name="list.name" :description="list.description" class="panel-body"></list>
 
@@ -88,7 +88,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .action {
     cursor: pointer;
     opacity: .7;
@@ -100,12 +100,13 @@
   }
 
   .panel {
+    text-overflow: ellipsis;
     display: inline-flex;
     text-align: center;
     justify-content: center;
     margin-inline-end: 5px;
     height: 400px;
-    width: 200px
+    width: 200px;
   }
 
   .container {

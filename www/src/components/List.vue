@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h1>{{name}}</h1>
-        <h6>{{description}}</h6>
+        <h3>{{name}}</h3>
+        <h5>{{description}}</h5>
         <span @click="removeList(listId, board._id)" class="glyphicon glyphicon-trash"></span>
     </div>
 
