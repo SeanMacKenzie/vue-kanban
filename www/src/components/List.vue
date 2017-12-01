@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{list.name}}</h1>
+        <h4>{{list.name}}</h4>
         <h6>{{list.description}}</h6>
         <span @click="removeList" class="glyphicon glyphicon-trash"></span>
         <div>
@@ -14,13 +14,19 @@
                 </div>
             </form>
         </div>
+        <div v-for="task in taskLists[list._id]">
+            <div class="thumbnail">
+                <task :task="task"></task>
+            </div>
+        </div>
     </div>
 
 </template>
 
 <script>
+    import task from './task'
     export default {
-        name: 'lists',
+        name: 'list',
         props: ["list"],
         data() {
             return {
@@ -31,10 +37,18 @@
                 }
             }
         },
+        mounted() {
+            var boardId = this.list.boardId
+            var listId = this.list._id
+            this.$store.dispatch('getTasks', { boardId, listId })
+        },
         computed: {
-            board() {
-                return this.$store.state.activeBoard
+            taskLists() {
+                return this.$store.state.activeTasks
             }
+            // board() {
+            //     return this.$store.state.activeBoard
+            // }
 
         },
         methods: {
@@ -54,7 +68,7 @@
             }
         },
         components: {
-
+            task
         }
     }
 </script>

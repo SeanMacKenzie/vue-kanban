@@ -38,7 +38,7 @@ var store = new vuex.Store({
       state.activeLists = data
     },
     setTasks(state, data) {
-      console.log(data)
+      // console.log(data)
       vue.set(state.activeTasks, data[0].listId, data)
       //state.activeTasks[data[0].listId] = data
       console.log(state.activeTasks)
@@ -160,7 +160,6 @@ var store = new vuex.Store({
     removeList({ commit, dispatch }, payload) {
       api.delete('lists/' + payload._id)
         .then(res => {
-          debugger
           dispatch('getLists', payload.boardId)
         })
         .catch(err => {
@@ -183,6 +182,15 @@ var store = new vuex.Store({
       api.post('tasks/', newTask)
         .then(res => {
           dispatch('getTasks', newTask)
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+    removeTask({ commit, dispatch }, payload) {
+      api.delete('tasks/' + payload._id)
+        .then(res => {
+          dispatch('getTasks', payload)
         })
         .catch(err => {
           commit('handleError', err)

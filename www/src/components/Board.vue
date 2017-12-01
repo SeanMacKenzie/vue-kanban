@@ -105,7 +105,7 @@
     text-align: center;
     justify-content: center;
     margin-inline-end: 5px;
-    height: 400px;
+    min-height: 400px;
     width: 200px;
   }
 
