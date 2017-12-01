@@ -1,6 +1,5 @@
 <template>
     <div>
-<<<<<<< HEAD
         <h1>{{list.name}}</h1>
         <h6>{{list.description}}</h6>
         <span @click="removeList" class="glyphicon glyphicon-trash"></span>
@@ -15,11 +14,6 @@
                 </div>
             </form>
         </div>
-=======
-        <h3>{{name}}</h3>
-        <h5>{{description}}</h5>
-        <span @click="removeList(listId, board._id)" class="glyphicon glyphicon-trash"></span>
->>>>>>> 360f975ddd5aa530177e28063465feb8a7500a03
     </div>
 
 </template>
