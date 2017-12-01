@@ -32,7 +32,7 @@
       </div>
       <div class="row text-center">
         <div v-for="list in lists" class="panel panel-default">
-          <list :name="list.name" :description="list.description" class="panel-body"></list>
+          <list :list="list" class="panel-body"></list>
 
         </div>
 

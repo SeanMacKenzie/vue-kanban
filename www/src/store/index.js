@@ -21,6 +21,7 @@ var store = new vuex.Store({
     boards: [],
     activeBoard: {},
     activeLists: [],
+    activeTasks: {},
     error: {},
     user: {}
   },
@@ -33,8 +34,14 @@ var store = new vuex.Store({
       state.boards = data
     },
     setLists(state, data) {
-      console.log('inside setlists', data)
+      // console.log('inside setlists', data)
       state.activeLists = data
+    },
+    setTasks(state, data) {
+      console.log(data)
+      vue.set(state.activeTasks, data[0].listId, data)
+      //state.activeTasks[data[0].listId] = data
+      console.log(state.activeTasks)
     },
     handleError(state, err) {
       state.error = err
@@ -151,7 +158,7 @@ var store = new vuex.Store({
         })
     },
     removeList({ commit, dispatch }, payload) {
-      api.delete('lists/' + payload.listId)
+      api.delete('lists/' + payload._id)
         .then(res => {
           debugger
           dispatch('getLists', payload.boardId)
@@ -161,8 +168,28 @@ var store = new vuex.Store({
         })
     },
 
+    //Task Stuff
+    getTasks({ commit, dispatch }, task) {
+      api('boards/' + task.boardId + '/lists/' + task.listId + '/tasks')
+        .then(res => {
+          // console.log("inside gettasks:", res)
+          commit('setTasks', res.data.data)
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+    submitTask({ commit, dispatch }, newTask) {
+      api.post('tasks/', newTask)
+        .then(res => {
+          dispatch('getTasks', newTask)
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
 
-    //error
+    //errors
     handleError({ commit, dispatch }, err) {
       commit('handleError', err)
     }
