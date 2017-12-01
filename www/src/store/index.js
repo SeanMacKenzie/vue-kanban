@@ -169,6 +169,7 @@ var store = new vuex.Store({
 
     //Task Stuff
     getTasks({ commit, dispatch }, task) {
+      console.log('getting tasks from: ', task.listId)
       api('boards/' + task.boardId + '/lists/' + task.listId + '/tasks')
         .then(res => {
           // console.log("inside gettasks:", res)
@@ -186,6 +187,19 @@ var store = new vuex.Store({
         .catch(err => {
           commit('handleError', err)
         })
+    },
+    moveTask({ commit, dispatch }, payload) {
+      let req = { listId: payload.listId }
+      api.put('tasks/' + payload.taskId, req)
+      .then(res=>{
+        dispatch('getTasks', payload)
+
+        payload.listId = payload.oldList
+        dispatch('getTasks', payload)
+      })
+      .catch(err => {
+        commit('handleError', err)
+      })
     },
     removeTask({ commit, dispatch }, payload) {
       api.delete('tasks/' + payload._id)

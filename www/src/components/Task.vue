@@ -5,22 +5,16 @@
         <h5>{{task.name}}
             <span @click="removeTask" class="glyphicon glyphicon-trash"></span>
         </h5>
-        <select>
-            <option v-for="list in lists" value="list._id">{{list.name}}</option>
-        </select>
+        <form name="taskmover" class="form" @submit.prevent="moveTask">
+            <select class="select" v-model="listSelection">
+                <option disabled selected value="">Select List</option>
+                <option v-for="list in lists" :value="list._id">{{list.name}}</option>
+            </select>
+            <button type="submit">Move Task</button>
+
+        </form>
 
 
-        <!-- <div>
-            <form class="form" @submit.prevent="submitTask">
-                <div class="form-group">
-                    <label for="name">Task Name</label>
-                    <input class="form-control" type="text" name="name" placeholder="Task Name" v-model='newTask.name' required>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Add Task</button>
-                </div>
-            </form>
-        </div> -->
     </div>
 
 
@@ -29,10 +23,10 @@
 <script>
     export default {
         name: 'task',
-        props: ["task"],
+        props: ["task", "list"],
         data() {
             return {
-
+                listSelection: ''
             }
         },
         computed: {
@@ -43,6 +37,13 @@
         methods: {
             removeTask() {
                 this.$store.dispatch('removeTask', this.task)
+            },
+            moveTask() {
+                var oldList = this.list._id
+                var listId = this.listSelection
+                var taskId = this.task._id
+                var boardId = this.list.boardId
+                this.$store.dispatch('moveTask', { listId, taskId, boardId, oldList })
             }
         },
         components: {

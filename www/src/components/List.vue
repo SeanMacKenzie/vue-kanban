@@ -14,9 +14,9 @@
                 </div>
             </form>
         </div>
-        <div v-for="task in taskLists[list._id]">
+        <div v-for="task in taskLists">
             <div class="thumbnail">
-                <task :task="task"></task>
+                <task :task="task" :list="list"></task>
             </div>
         </div>
     </div>
@@ -44,7 +44,7 @@
         },
         computed: {
             taskLists() {
-                return this.$store.state.activeTasks
+                return this.$store.state.activeTasks[this.list._id]
             }
             // board() {
             //     return this.$store.state.activeBoard
