@@ -7,7 +7,8 @@ var schema = new mongoose.Schema({
     created: { type: Number, default: Date.now() },
     // Relations
     taskId: { type: ObjectId, ref: models.task, required: true },
-    listId: { type: ObjectId, ref: models.list, required: true }
+    listId: { type: ObjectId, ref: models.list, required: true },
+    boardId: { type: ObjectId, ref: models.board, required: true }
 });
 
 module.exports = mongoose.model(models.comment.name, schema);

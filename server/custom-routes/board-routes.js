@@ -7,10 +7,10 @@ module.exports = {
   findListsByBoardId: {
     path: '/boards/:boardId/lists',
     reqType: 'get',
-    method(req, res, next){
+    method(req, res, next) {
       let action = 'Find Board Lists'
-      Lists.find({boardId: req.params.boardId})
-        .then(lists=> {
+      Lists.find({ boardId: req.params.boardId })
+        .then(lists => {
           res.send(handleResponse(action, lists))
         }).catch(error => {
           return next(handleResponse(action, null, error))
@@ -21,10 +21,10 @@ module.exports = {
   findTasksByListId: {
     path: '/boards/:boardId/lists/:listId/tasks',
     reqType: 'get',
-    method(req, res, next){
+    method(req, res, next) {
       let action = 'Find List Tasks'
-      Tasks.find({listId: req.params.listId})
-        .then(tasks=> {
+      Tasks.find({ listId: req.params.listId })
+        .then(tasks => {
           res.send(handleResponse(action, tasks))
         }).catch(error => {
           return next(handleResponse(action, null, error))
@@ -33,12 +33,12 @@ module.exports = {
   },
 
   findCommentsByTaskId: {
-    path: 'boards/:boardId/lists/:listId/tasks/:taskId/comments',
+    path: '/boards/:boardId/lists/:listId/tasks/:taskId/comments',
     reqType: 'get',
-    method (req, res, next){
+    method(req, res, next) {
       let action = 'Find Task Comments'
-      Comments.find({taskId: req.params.taskId})
-        .then(tasks=> {
+      Comments.find({ taskId: req.params.taskId })
+        .then(tasks => {
           res.send(handleResponse(action, tasks))
         }).catch(error => {
           return next(handleResponse(action, null, error))
@@ -50,12 +50,12 @@ module.exports = {
 
 
 function handleResponse(action, data, error) {
-    var response = {
-      action: action,
-      data: data
-    }
-    if (error) {
-      response.error = error
-    }
-    return response
+  var response = {
+    action: action,
+    data: data
   }
+  if (error) {
+    response.error = error
+  }
+  return response
+}

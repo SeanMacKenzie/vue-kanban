@@ -22,6 +22,7 @@ var store = new vuex.Store({
     activeBoard: {},
     activeLists: [],
     activeTasks: {},
+    activeComments: {},
     error: {},
     user: {}
   },
@@ -42,6 +43,11 @@ var store = new vuex.Store({
       vue.set(state.activeTasks, data.listId, data.tasks)
       //state.activeTasks[data[0].listId] = data
       console.log(state.activeTasks)
+    },
+    setComments(state, data) {
+      // debugger
+      vue.set(state.activeComments, data.taskId, data.comments)
+      console.log("Active comments: ", state.activeComments)
     },
     handleError(state, err) {
       state.error = err
@@ -207,6 +213,42 @@ var store = new vuex.Store({
       api.delete('tasks/' + payload.taskId)
         .then(res => {
           dispatch('getTasks', payload)
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+
+    // COMMENT STUFF
+
+    getComments({ commit, dispatch }, comment) {
+      // debugger
+      console.log('getting comments from: ', comment.taskId)
+      api('boards/' + comment.boardId + '/lists/' + comment.listId + '/tasks/' + comment.taskId + '/comments')
+        // boards/:boardId/lists/:listId/tasks/:taskId/comments <- custom route for above
+        .then(res => {
+          console.log("inside getComments:", res)
+          commit('setComments', { taskId: comment.taskId, comments: res.data.data })
+          // debugger
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+
+    submitComment({ commit, dispatch }, newComment) {
+      api.post('comments/', newComment)
+        .then(res => {
+          dispatch('getComments', newComment)
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
+    },
+    removeComment({ commit, dispatch }, payload) {
+      api.delete('comments/' + payload.commentId)
+        .then(res => {
+          dispatch('getComments', payload)
         })
         .catch(err => {
           commit('handleError', err)
