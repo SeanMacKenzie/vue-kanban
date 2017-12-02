@@ -179,6 +179,7 @@ var store = new vuex.Store({
           commit('handleError', err)
         })
     },
+
     submitTask({ commit, dispatch }, newTask) {
       api.post('tasks/', newTask)
         .then(res => {
@@ -188,6 +189,7 @@ var store = new vuex.Store({
           commit('handleError', err)
         })
     },
+
     moveTask({ commit, dispatch }, payload) {
       let req = { listId: payload.listId }
       api.put('tasks/' + payload.taskId, req)
@@ -201,8 +203,9 @@ var store = new vuex.Store({
         commit('handleError', err)
       })
     },
+
     removeTask({ commit, dispatch }, payload) {
-      api.delete('tasks/' + payload._id)
+      api.delete('tasks/' + payload.taskId)
         .then(res => {
           dispatch('getTasks', payload)
         })

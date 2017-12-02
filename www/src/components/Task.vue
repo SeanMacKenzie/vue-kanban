@@ -11,8 +11,8 @@
                 <option v-for="list in lists" :value="list._id">{{list.name}}</option>
             </select>
             <button type="submit">Move Task</button>
-
         </form>
+
 
 
     </div>
@@ -36,7 +36,10 @@
         },
         methods: {
             removeTask() {
-                this.$store.dispatch('removeTask', this.task)
+                var taskId = this.task._id
+                var listId = this.task.listId
+                var boardId = this.list.boardId
+                this.$store.dispatch('removeTask', { listId, boardId, taskId })
             },
             moveTask() {
                 var oldList = this.list._id
