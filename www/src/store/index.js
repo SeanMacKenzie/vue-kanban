@@ -39,7 +39,7 @@ var store = new vuex.Store({
     },
     setTasks(state, data) {
       // console.log(data)
-      vue.set(state.activeTasks, data[0].listId, data)
+      vue.set(state.activeTasks, data.listId, data.tasks)
       //state.activeTasks[data[0].listId] = data
       console.log(state.activeTasks)
     },
@@ -173,7 +173,7 @@ var store = new vuex.Store({
       api('boards/' + task.boardId + '/lists/' + task.listId + '/tasks')
         .then(res => {
           // console.log("inside gettasks:", res)
-          commit('setTasks', res.data.data)
+          commit('setTasks', { listId: task.listId, tasks: res.data.data })
         })
         .catch(err => {
           commit('handleError', err)
@@ -193,15 +193,14 @@ var store = new vuex.Store({
     moveTask({ commit, dispatch }, payload) {
       let req = { listId: payload.listId }
       api.put('tasks/' + payload.taskId, req)
-      .then(res=>{
-        dispatch('getTasks', payload)
-
-        payload.listId = payload.oldList
-        dispatch('getTasks', payload)
-      })
-      .catch(err => {
-        commit('handleError', err)
-      })
+        .then(res => {
+          //REMIND JAKE TO SHOW MARK THIS MISTAKE
+          dispatch('getTasks', { listId: payload.listId, boardId: payload.boardId })
+          dispatch('getTasks', { listId: payload.oldList, boardId: payload.boardId })
+        })
+        .catch(err => {
+          commit('handleError', err)
+        })
     },
 
     removeTask({ commit, dispatch }, payload) {

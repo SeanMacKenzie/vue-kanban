@@ -47,6 +47,7 @@
                 var taskId = this.task._id
                 var boardId = this.list.boardId
                 this.$store.dispatch('moveTask', { listId, taskId, boardId, oldList })
+                this.listSelection = ''
             }
         },
         components: {
