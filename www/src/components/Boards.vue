@@ -144,6 +144,11 @@
         this.newBoard.creatorId = this.user._id
         this.$store.dispatch('createBoard', this.newBoard)
         this.boardForm = false
+        this.newBoard = {
+          name: '',
+          description: '',
+          creatorId: '',
+        }
       },
       removeBoard(board) {
         this.$store.dispatch('removeBoard', board)
@@ -180,7 +185,8 @@
   .action:hover {
     opacity: 1
   }
-  .form-plus{
+
+  .form-plus {
     font-size: 69px;
     line-height: 190px;
   }
