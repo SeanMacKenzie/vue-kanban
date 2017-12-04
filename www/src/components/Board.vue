@@ -25,60 +25,61 @@
         </div>
       </div>
 
-      <div class="row text-center">
+      <div class="text-center">
         <h1>{{board.name}}</h1>
         <h3>{{board.description}}</h3>
 
       </div>
-      <div class="row text-center">
-        <div v-for="(list, i) in lists" class="col-sm-2">
-          <div class="panel panel-default list-panel">
-            <div class="panel-heading">
-              <div class="pull-right">
-                <!-- <span @click="removeBoard(board)" class="glyphicon glyphicon-trash"></span> -->
-                <span @click="removeList(list)" class="glyphicon glyphicon-trash"></span>
+      <div class="row text-center list-row">
+        <div class="list-wrapper">
+          <div v-for="(list, i) in lists" class="list-div">
+            <div class="panel panel-default list-panel">
+              <div class="panel-heading">
+                <div class="pull-right">
+                  <!-- <span @click="removeBoard(board)" class="glyphicon glyphicon-trash"></span> -->
+                  <span @click="removeList(list)" class="glyphicon glyphicon-trash action-delete"></span>
+                </div>
+                {{list.name}}
               </div>
-              {{list.name}}
-            </div>
-            <div class="panel-body">
-              <list :list="list"></list>
+              <div class="panel-body">
+                <list :list="list"></list>
+              </div>
             </div>
           </div>
 
-
-
-        </div>
-
-        <div class="col-sm-2">
-          <div class="panel panel-default list-panel">
-            <div class="panel-body">
-              <div v-if="listForm" class="listForm">
-                <form class="form" @submit.prevent="submitList">
-                  <div class="form-group">
-                    <label for="name">List name</label>
-                    <input class="form-control" type="text" name="name" placeholder="List name" v-model='newList.name' required>
-                  </div>
-                  <div class="form-group">
-                    <label for="description">Description</label>
-                    <input class="form-control" type="text" name="description" v-model='newList.description'>
-                  </div>
-                  <div class="form-group">
-                    <button type="submit" class="btn btn-success">Create list</button>
-                  </div>
-                </form>
+          <div class="add-list-button list-div">
+            <div class="panel panel-default list-panel">
+              <div class="panel-body">
+                <div v-if="listForm" class="listForm">
+                  <form class="form" @submit.prevent="submitList">
+                    <div class="form-group">
+                      <label for="name">List name</label>
+                      <input class="form-control" type="text" name="name" placeholder="List name" v-model='newList.name' required>
+                    </div>
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <input class="form-control" type="text" name="description" v-model='newList.description'>
+                    </div>
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-success">Create list</button>
+                    </div>
+                  </form>
+                </div>
+                <!-- <div v-else class="register">
+                  <button @click="toggleListForm" class="action btn btn-info">Add a List</button>
+                </div> -->
+                <div @click="toggleListForm" v-else>
+                  <p class="form-list-plus">+</p>
+                </div>
+                <!-- <p v-if="listForm" @click="toggleListForm" class="action btn btn-danger">Cancel</p> -->
               </div>
-              <!-- <div v-else class="register">
-                <button @click="toggleListForm" class="action btn btn-info">Add a List</button>
-              </div> -->
-              <div @click="toggleListForm" v-else>
-                <p class="form-list-plus">+</p>
-              </div>
-              <!-- <p v-if="listForm" @click="toggleListForm" class="action btn btn-danger">Cancel</p> -->
             </div>
+
           </div>
         </div>
 
       </div>
+
     </div>
   </div>
 </template>
@@ -172,15 +173,35 @@
     width: 200px;
   } */
 
-  .list-panel {
+  /* .list-panel {
     overflow: auto;
     height: 600px;
-    /* width: 200px; */
+    width: 200px;
+  } */
+
+  .list-div {
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    margin-left: 15px;
+    margin-right: 15px;
   }
 
   .form-list-plus {
     font-size: 200px;
     line-height: 558px;
+  }
+
+  .list-row {
+    overflow: auto;
+  }
+
+  .list-wrapper {
+    white-space: nowrap;
+  }
+
+  .add-list-button {
+    width: 400px;
   }
 
   /* .container {
