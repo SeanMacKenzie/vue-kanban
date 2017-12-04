@@ -198,6 +198,7 @@
 
   .list-wrapper {
     white-space: nowrap;
+    min-height: 74vh;
   }
 
   .add-list-button {

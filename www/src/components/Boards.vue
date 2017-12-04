@@ -39,7 +39,7 @@
 
         <div class="col-sm-2 col-sm-offset-1 thumbnail board-box" v-if="i % 3 == 0">
           <div class="pull-right">
-            <span @click="removeBoard(board)" class="glyphicon glyphicon-trash"></span>
+            <span @click="removeBoard(board)" class="glyphicon glyphicon-trash action-delete"></span>
           </div>
           <h3>
             <router-link :to="'/boards/'+board._id">{{board.name}}</router-link>
