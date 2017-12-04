@@ -31,7 +31,7 @@
           </form>
         </div>
         <div @click="toggleBoardForm" v-else>
-          <span class="glyphicon glyphicon-plus form-plus"></span>
+          <span class="glyphicon glyphicon-plus form-board-plus"></span>
         </div>
       </div>
 
@@ -98,7 +98,7 @@
               </form>
             </div>
             <div @click="toggleBoardForm" v-else>
-              <span class="glyphicon glyphicon-plus form-plus"></span>
+              <span class="glyphicon glyphicon-plus form-board-plus"></span>
             </div>
           </div>
 
