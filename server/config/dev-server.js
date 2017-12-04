@@ -29,6 +29,7 @@ function logger(req, res, next) {
 }
 
 // REGISTER MIDDLEWARE
+app.use(express.static(__dirname + '/../../www/public'))
 app.use(session)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -41,20 +42,18 @@ app.use(Validate)
 app.use('/api', api)
 app.use('/', defaultErrorHandler)
 
-let io = require('socket.io')(server, {
-    origins: '*:*'
-})
+// let io = require('socket.io')(server, {
+//     origins: '*:*'
+// })
 
-io.on('connection', function (socket) {
-    socket.emit('CONNECTED', {
-        socket: socket.id,
-        message: 'Welcome to the Jungle'
-    })
+// io.on('connection', function (socket) {
+//     socket.emit('CONNECTED', {
+//     })
 
-    socket.on('update', (d) => {
-        console.log(d)
-    })
+//     socket.on('update', (d) => {
+//         console.log(d)
+//     })
 
-})
+// })
 
 module.exports = server
