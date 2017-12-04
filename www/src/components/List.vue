@@ -32,7 +32,10 @@
         </div>
 
         <div v-for="task in taskLists">
-            <div class="thumbnail">
+            <div class="thumbnail task-div">
+                <div class="pull-right">
+                    <span @click="removeTask(task._id)" class="glyphicon glyphicon-trash trash-icon action-delete"></span>
+                </div>
                 <task :task="task" :list="list"></task>
             </div>
         </div>
@@ -89,6 +92,11 @@
                     boardId: ''
                 }
                 this.taskForm = !this.taskForm
+            },
+            removeTask(taskId) {
+                var listId = this.list._id
+                var boardId = this.list.boardId
+                this.$store.dispatch('removeTask', { listId, boardId, taskId })
             }
         },
         components: {
@@ -98,4 +106,20 @@
 </script>
 
 <style>
+    .task-div{
+        background-color: rgb(108, 108, 108)
+    }
+    .trash-icon{
+        color: white;
+    }
+    .action-delete {
+        cursor: pointer;
+        opacity: .7;
+        transition: all .3s linear;
+    }
+
+    .action-delete:hover {
+        opacity: 1;
+        color: red;
+    }
 </style>
