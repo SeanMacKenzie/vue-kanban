@@ -1,40 +1,81 @@
 <template>
-  <div class="jumbotron">
-    <div class="container">
+  <div class="board-page">
+    <div class="container-fluid">
 
-      <div class="row">
-        <div class="col-md-3">{{board.name}}</div>
-        <div class="col-md-3">{{board.description}}</div>
-        <div class="col-md-3">{{board._id}}</div>
+      <!-- <div class="row">
+        <div class="col-md-3">Board Name: {{board.name}}</div>
+        <div class="col-md-3">Board Description: {{board.description}}</div>
+        <div class="col-md-3">Board Id: {{board._id}}</div>
         <div class="col-md-3">Created on: {{board.created}}</div>
+      </div> -->
+
+      <div class="row top-bar">
+        <div class="col-sm-1">
+          <h3 class="h3-custom">
+            <router-link :to="'/'">
+              <button class="btn btn-primary">
+                <span class="glyphicon glyphicon-arrow-left"></span> Back to Boards</button>
+            </router-link>
+          </h3>
+        </div>
+        <div class="col-sm-1 col-sm-offset-10">
+          <h3 class="h3-custom">
+            <button class="btn btn-primary" @click="logout">Logout</button>
+          </h3>
+        </div>
       </div>
+
       <div class="row text-center">
         <h1>{{board.name}}</h1>
         <h3>{{board.description}}</h3>
-        <div v-if="listForm" class="listForm">
-          <form class="form" @submit.prevent="submitList">
-            <div class="form-group">
-              <label for="name">List name</label>
-              <input class="form-control" type="text" name="name" placeholder="List name" v-model='newList.name' required>
-            </div>
-            <div class="form-group">
-              <label for="description">Description</label>
-              <input class="form-control" type="text" name="description" v-model='newList.description'>
-            </div>
-            <div class="form-group">
-              <button type="submit" class="btn btn-success">Create list</button>
-            </div>
-          </form>
-        </div>
-        <div v-else class="register">
-        </div>
-        <p v-if="listForm" @click="toggleListForm" class="action btn btn-danger">Cancel</p>
-        <p v-else @click="toggleListForm" class="action btn btn-info">Add a List</p>
-      </div>
-      <div class="row text-center" style="text-overflow:ellipsis">
-        <div v-for="list in lists" class="panel panel-default">
-          <list :list="list" class="panel-body"></list>
 
+      </div>
+      <div class="row text-center">
+        <div v-for="(list, i) in lists" class="col-sm-2">
+          <div class="panel panel-default list-panel">
+            <div class="panel-heading">
+              <div class="pull-right">
+                <!-- <span @click="removeBoard(board)" class="glyphicon glyphicon-trash"></span> -->
+                <span @click="removeList(list)" class="glyphicon glyphicon-trash"></span>
+              </div>
+              {{list.name}}
+            </div>
+            <div class="panel-body">
+              <list :list="list"></list>
+            </div>
+          </div>
+
+
+
+        </div>
+
+        <div class="col-sm-2">
+          <div class="panel panel-default list-panel">
+            <div class="panel-body">
+              <div v-if="listForm" class="listForm">
+                <form class="form" @submit.prevent="submitList">
+                  <div class="form-group">
+                    <label for="name">List name</label>
+                    <input class="form-control" type="text" name="name" placeholder="List name" v-model='newList.name' required>
+                  </div>
+                  <div class="form-group">
+                    <label for="description">Description</label>
+                    <input class="form-control" type="text" name="description" v-model='newList.description'>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-success">Create list</button>
+                  </div>
+                </form>
+              </div>
+              <!-- <div v-else class="register">
+                <button @click="toggleListForm" class="action btn btn-info">Add a List</button>
+              </div> -->
+              <div @click="toggleListForm" v-else>
+                <p class="form-list-plus">+</p>
+              </div>
+              <!-- <p v-if="listForm" @click="toggleListForm" class="action btn btn-danger">Cancel</p> -->
+            </div>
+          </div>
         </div>
 
       </div>
@@ -67,11 +108,18 @@
       submitList() {
         this.newList.boardId = this.board._id
         this.$store.dispatch('submitList', this.newList)
+        this.listForm = false
         this.newList = {
           name: '',
           description: '',
           boardId: ''
         }
+      },
+      removeList(listId) {
+        this.$store.dispatch('removeList', listId)
+      },
+      logout() {
+        this.$store.dispatch('logout')
       }
     },
     computed: {
@@ -99,22 +147,48 @@
     opacity: 1
   }
 
-  .panel {
-    text-overflow: ellipsis;
+  /* .panel { */
+
+  /* text-overflow: ellipsis; */
+
+  /* display: inline-flex; */
+
+  /* text-align: center; */
+
+  /* justify-content: center; */
+
+  /* margin-inline-end: 5px; */
+
+  /* min-height: 400px; */
+
+  /* width: 200px; */
+
+  /* } */
+
+  /* .inl-flex {
     display: inline-flex;
-    text-align: center;
-    justify-content: center;
     margin-inline-end: 5px;
     min-height: 400px;
     width: 200px;
+  } */
+
+  .list-panel {
+    overflow: auto;
+    height: 600px;
+    /* width: 200px; */
   }
 
-  .container {
+  .form-list-plus {
+    font-size: 200px;
+    line-height: 558px;
+  }
+
+  /* .container {
     margin-top: 0px;
     padding-top: 0px;
-  }
+  } */
 
-  .jumbotron {
+  /* .jumbotron {
     height: 100px
-  }
+  } */
 </style>

@@ -1,24 +1,44 @@
 <template>
     <div>
-        <h4>{{list.name}}</h4>
-        <h6>{{list.description}}</h6>
-        <span @click="removeList" class="glyphicon glyphicon-trash"></span>
-        <div>
-            <form class="form" @submit.prevent="submitTask">
-                <div class="form-group">
-                    <label for="name">Task Name</label>
-                    <input class="form-control" type="text" name="name" placeholder="Task Name" v-model='newTask.name' required>
-                </div>
-                <div class="form-group">
-                    <button type="submit">Add Task</button>
-                </div>
-            </form>
+
+        <!-- <div class="pull-right">
+            <span @click="removeList" class="glyphicon glyphicon-trash"></span>
+        </div> -->
+
+
+        <!-- <div class="panel-heading">
+                <h4>{{list.name}}</h4>
+            </div> -->
+        <!-- <h6>{{list.description}}</h6> -->
+
+        <div class="add-task-div">
+            <div v-if="!taskForm">
+                <button @click="toggleTaskForm" class="btn btn-primary">Add task</button>
+            </div>
+            <div v-else>
+                <button @click="toggleTaskForm" class="btn btn-primary">Cancel</button>
+            </div>
+            <div v-if="taskForm" class="task-form thumbnail">
+                <form class="form" @submit.prevent="submitTask">
+                    <div class="form-group">
+                        <label for="name">Task Name</label>
+                        <input class="form-control" type="text" name="name" placeholder="Task Name" v-model='newTask.name' required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                    </div>
+                </form>
+            </div>
         </div>
+
         <div v-for="task in taskLists">
             <div class="thumbnail">
                 <task :task="task" :list="list"></task>
             </div>
         </div>
+
+
+
     </div>
 
 </template>
@@ -30,6 +50,7 @@
         props: ["list"],
         data() {
             return {
+                taskForm: false,
                 newTask: {
                     name: '',
                     listId: '',
@@ -52,8 +73,11 @@
 
         },
         methods: {
-            removeList() {
-                this.$store.dispatch('removeList', this.list)
+            // removeListremoveList() {
+            //     this.$store.dispatch('removeList', this.list)
+            // },
+            toggleTaskForm() {
+                this.taskForm = !this.taskForm
             },
             submitTask() {
                 this.newTask.boardId = this.list.boardId
@@ -64,7 +88,7 @@
                     listId: '',
                     boardId: ''
                 }
-
+                this.taskForm = !this.taskForm
             }
         },
         components: {

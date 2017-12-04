@@ -77,7 +77,7 @@
               </form>
             </div>
             <div @click="toggleBoardForm" v-else>
-              <span class="glyphicon glyphicon-plus form-plus"></span>
+              <span class="glyphicon glyphicon-plus form-board-plus"></span>
             </div>
           </div>
 
@@ -186,7 +186,7 @@
     opacity: 1
   }
 
-  .form-plus {
+  .form-board-plus {
     font-size: 69px;
     line-height: 190px;
   }
