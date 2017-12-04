@@ -148,7 +148,7 @@
 
     .task-title {
         font-weight: bold;
-        color: white;
+        color: rgb(255, 255, 255);
     }
 
     .task-buttons {

@@ -5,7 +5,7 @@
         </h5>
         <div class="row">
             <div class="login-box thumbnail col-sm-4 col-sm-offset-4">
-                <h1>(Project name) Kanban!</h1>
+                <h1>Kanban!</h1>
                 <p>please login to continue:</p>
                 <!-- Add error message if login fails -->
                 <div class="form-box row">

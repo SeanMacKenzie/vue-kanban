@@ -62,14 +62,15 @@
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-success">Create list</button>
+                      <button class="btn btn-primary" @click="toggleListForm">Cancel</button>
                     </div>
                   </form>
                 </div>
                 <!-- <div v-else class="register">
                   <button @click="toggleListForm" class="action btn btn-info">Add a List</button>
                 </div> -->
-                <div @click="toggleListForm" v-else>
-                  <p class="form-list-plus">+</p>
+                <div v-else>
+                  <button @click="toggleListForm" class="form-list-plus">+</button>
                 </div>
                 <!-- <p v-if="listForm" @click="toggleListForm" class="action btn btn-danger">Cancel</p> -->
               </div>
@@ -189,7 +190,10 @@
 
   .form-list-plus {
     font-size: 200px;
-    line-height: 558px;
+    line-height: 500px;
+    width: 368px;
+    background-color: white;
+    border: none;
   }
 
   .list-row {
@@ -198,7 +202,7 @@
 
   .list-wrapper {
     white-space: nowrap;
-    min-height: 74vh;
+    min-height: 55rem;
   }
 
   .add-list-button {

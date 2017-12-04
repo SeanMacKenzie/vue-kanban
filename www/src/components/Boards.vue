@@ -27,6 +27,7 @@
             </div>
             <div class="form-group">
               <button type="submit">Create Board</button>
+              <button @click="toggleBoardForm">Cancel</button>
             </div>
           </form>
         </div>
@@ -73,6 +74,7 @@
                 </div>
                 <div class="form-group">
                   <button type="submit">Create Board</button>
+                  <button @click="toggleBoardForm">Cancel</button>
                 </div>
               </form>
             </div>
@@ -94,6 +96,7 @@
                 </div>
                 <div class="form-group">
                   <button type="submit">Create Board</button>
+                  <button @click="toggleBoardForm">Cancel</button>
                 </div>
               </form>
             </div>
