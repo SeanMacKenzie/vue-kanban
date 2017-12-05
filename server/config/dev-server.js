@@ -29,10 +29,10 @@ function logger(req, res, next) {
 }
 
 // REGISTER MIDDLEWARE
-app.use(express.static(__dirname + '/../../www/public'))
 app.use(session)
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.static(__dirname + '/../public'))
 app.use('*', logger)
 app.use('*', cors(corsOptions))
 app.use('/', Auth)

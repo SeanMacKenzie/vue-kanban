@@ -1,0 +1,176 @@
+
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  /* margin-top: 60px; */
+  margin-top: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.top-bar {
+  background-color: rgba(0, 255, 234, 1);
+  margin-bottom: 25px;
+}
+.h3-custom {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.board-box {
+  overflow: auto;
+  height: 200px;
+}
+.action {
+  cursor: pointer;
+  opacity: .7;
+  transition: all .3s linear;
+}
+.action:hover {
+  opacity: 1
+}
+.form-board-plus {
+  font-size: 69px;
+  line-height: 190px;
+}
+
+/* .jumbotron {
+  height: 300px;
+  border-top: 0;
+  margin-top: 0;
+} */
+
+.action {
+  cursor: pointer;
+  opacity: .7;
+  transition: all .3s linear;
+}
+.action:hover {
+  opacity: 1
+}
+
+/* .panel { */
+
+/* text-overflow: ellipsis; */
+
+/* display: inline-flex; */
+
+/* text-align: center; */
+
+/* justify-content: center; */
+
+/* margin-inline-end: 5px; */
+
+/* min-height: 400px; */
+
+/* width: 200px; */
+
+/* } */
+
+/* .inl-flex {
+  display: inline-flex;
+  margin-inline-end: 5px;
+  min-height: 400px;
+  width: 200px;
+} */
+
+/* .list-panel {
+  overflow: auto;
+  height: 600px;
+  width: 200px;
+} */
+.list-div {
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.form-list-plus {
+  font-size: 200px;
+  line-height: 500px;
+  width: 368px;
+  background-color: white;
+  border: none;
+}
+.list-row {
+  overflow: auto;
+}
+.list-wrapper {
+  white-space: nowrap;
+  min-height: 55rem;
+}
+.add-list-button {
+  width: 400px;
+}
+
+/* .container {
+  margin-top: 0px;
+  padding-top: 0px;
+} */
+
+/* .jumbotron {
+  height: 100px
+} */
+
+.task-div{
+    background-color: rgb(108, 108, 108)
+}
+.trash-icon{
+    color: white;
+}
+.action-delete {
+    cursor: pointer;
+    opacity: .7;
+    transition: all .3s linear;
+}
+.action-delete:hover {
+    opacity: 1;
+    color: red;
+}
+
+.comment-div p {
+    /* overflow-wrap: break-word !important; */
+    word-wrap: break-all;
+    white-space: normal;
+}
+.task-title {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+}
+.task-buttons {
+    display: inline-block;
+}
+.comment-box {
+    background-color: rgba(225, 225, 225, 1)
+}
+
+.action {
+    cursor: pointer;
+    opacity: .7;
+    transition: all .3s linear;
+}
+.action:hover {
+    opacity: 1
+}
+
+/*# sourceMappingURL=app.af239a282737ac532587586114173bbd.css.map*/
