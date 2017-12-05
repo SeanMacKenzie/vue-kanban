@@ -176,7 +176,8 @@
 
   .board-box {
     overflow: auto;
-    height: 200px;
+    height: 250px;
+    width: 250px;
   }
 
   .action {

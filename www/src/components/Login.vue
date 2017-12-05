@@ -1,7 +1,7 @@
 <template>
     <div class="login container-fluid">
         <h5 class="text-danger" v-if="error">
-            <b>{{error}}</b>
+            <b>Incorrect e-mail or password. Please try again.</b>
         </h5>
         <div class="row">
             <div class="login-box thumbnail col-sm-4 col-sm-offset-4">
