@@ -175,7 +175,7 @@
   }
 
   .board-box {
-    overflow: auto;
+    /* overflow: auto; */
     height: 250px;
     width: 250px;
   }
@@ -192,7 +192,7 @@
 
   .form-board-plus {
     font-size: 69px;
-    line-height: 190px;
+    line-height: 213px;
   }
 
   /* .jumbotron {
