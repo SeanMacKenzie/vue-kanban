@@ -38,7 +38,8 @@
 }
 .board-box {
   overflow: auto;
-  height: 200px;
+  height: 250px;
+  width: 250px;
 }
 .action {
   cursor: pointer;
@@ -173,4 +174,4 @@
     opacity: 1
 }
 
-/*# sourceMappingURL=app.af239a282737ac532587586114173bbd.css.map*/
+/*# sourceMappingURL=app.2ee4a44567302cc5c6dc813386fcb577.css.map*/
