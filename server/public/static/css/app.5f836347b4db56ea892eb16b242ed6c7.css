@@ -37,7 +37,7 @@
   margin-bottom: 10px;
 }
 .board-box {
-  overflow: auto;
+  /* overflow: auto; */
   height: 250px;
   width: 250px;
 }
@@ -51,7 +51,7 @@
 }
 .form-board-plus {
   font-size: 69px;
-  line-height: 190px;
+  line-height: 213px;
 }
 
 /* .jumbotron {
@@ -174,4 +174,4 @@
     opacity: 1
 }
 
-/*# sourceMappingURL=app.2ee4a44567302cc5c6dc813386fcb577.css.map*/
+/*# sourceMappingURL=app.5f836347b4db56ea892eb16b242ed6c7.css.map*/
