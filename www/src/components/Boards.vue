@@ -195,9 +195,4 @@
     line-height: 213px;
   }
 
-  /* .jumbotron {
-    height: 300px;
-    border-top: 0;
-    margin-top: 0;
-  } */
 </style>

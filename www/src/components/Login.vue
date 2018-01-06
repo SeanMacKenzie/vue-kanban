@@ -3,10 +3,10 @@
         <h5 class="text-danger" v-if="error">
             <b>Incorrect e-mail or password. Please try again.</b>
         </h5>
-        <div class="row">
+        <div class="row alpha">
             <div class="login-box thumbnail col-sm-4 col-sm-offset-4">
-                <h1>Kanban!</h1>
-                <p>please login to continue:</p>
+                <h1>proBoards</h1>
+                <p>Where your group projects begin. Please login to continue:</p>
                 <!-- Add error message if login fails -->
                 <div class="form-box row">
                     <div class="form-col col-sm-8 col-sm-offset-2">
@@ -106,6 +106,7 @@
 
 </script>
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono');
     .action {
         cursor: pointer;
         opacity: .7;
@@ -114,5 +115,16 @@
 
     .action:hover {
         opacity: 1
+    }
+
+    .alpha {
+        background-color: #80b6e5;
+        padding-top: 3%;
+    }
+    .login-box {
+        font-family: 'Overpass Mono', monospace;
+    }
+    h1{
+        font-family: 'Rock Salt', cursive;
     }
 </style>

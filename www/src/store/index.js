@@ -4,16 +4,18 @@ import vuex from 'vuex'
 import router from '../router'
 // import $ from 'jquery'
 
-let base = window.location.host.indexOf('localhost') > -1 ? '//localhost:3000/' : '/'
+
+var production = !window.location.host.includes('localhost');
+var baseUrl = production ? '//kanbanvuejs.herokuapp.com/' : '//localhost:3000/';
 
 let api = axios.create({
-  baseURL: base+'/api/',
+  baseURL: baseUrl +'/api/',
   timeout: 2000,
   withCredentials: true
 })
 
 let auth = axios.create({
-  baseURL: base,
+  baseURL: baseUrl,
   timeout: 2000,
   withCredentials: true
 })

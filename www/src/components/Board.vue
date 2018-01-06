@@ -2,13 +2,6 @@
   <div class="board-page">
     <div class="container-fluid">
 
-      <!-- <div class="row">
-        <div class="col-md-3">Board Name: {{board.name}}</div>
-        <div class="col-md-3">Board Description: {{board.description}}</div>
-        <div class="col-md-3">Board Id: {{board._id}}</div>
-        <div class="col-md-3">Created on: {{board.created}}</div>
-      </div> -->
-
       <div class="row top-bar">
         <div class="col-sm-1">
           <h3 class="h3-custom">
@@ -139,6 +132,7 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono');
   .action {
     cursor: pointer;
     opacity: .7;
@@ -148,37 +142,6 @@
   .action:hover {
     opacity: 1
   }
-
-  /* .panel { */
-
-  /* text-overflow: ellipsis; */
-
-  /* display: inline-flex; */
-
-  /* text-align: center; */
-
-  /* justify-content: center; */
-
-  /* margin-inline-end: 5px; */
-
-  /* min-height: 400px; */
-
-  /* width: 200px; */
-
-  /* } */
-
-  /* .inl-flex {
-    display: inline-flex;
-    margin-inline-end: 5px;
-    min-height: 400px;
-    width: 200px;
-  } */
-
-  /* .list-panel {
-    overflow: auto;
-    height: 600px;
-    width: 200px;
-  } */
 
   .list-div {
     display: inline-block;
@@ -209,12 +172,11 @@
     width: 400px;
   }
 
-  /* .container {
-    margin-top: 0px;
-    padding-top: 0px;
-  } */
+  h1 {
+    font-family: 'Rock Salt', cursive;
+  }
 
-  /* .jumbotron {
-    height: 100px
-  } */
+  h3 {
+    font-family: 'Overpass Mono', monospace;
+  }
 </style>
