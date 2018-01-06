@@ -42,7 +42,7 @@
           <div class="pull-right">
             <span @click="removeBoard(board)" class="glyphicon glyphicon-trash action-delete"></span>
           </div>
-          <h3>
+          <h3 class="title">
             <router-link :to="'/boards/'+board._id">{{board.name}}</router-link>
           </h3>
           <h4>{{board.description}}</h4>
@@ -52,7 +52,7 @@
           <div class="pull-right">
             <span @click="removeBoard(board)" class="glyphicon glyphicon-trash"></span>
           </div>
-          <h3>
+          <h3 class="title">
             <router-link :to="'/boards/'+board._id">{{board.name}}</router-link>
           </h3>
           <h4>{{board.description}}</h4>
@@ -164,14 +164,28 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono');
   .top-bar {
-    background-color: rgba(0, 255, 234, 1);
+    background-color: #80b6e5;
     margin-bottom: 25px;
+  }
+
+  .form {
+    font-family: 'Overpass Mono', monospace;
+  }
+
+  h4 {
+    font-family: 'Overpass Mono', monospace;
+  }
+
+  .title {
+    font-family: 'Rock Salt', cursive;
   }
 
   .h3-custom {
     margin-top: 10px;
     margin-bottom: 10px;
+    font-family: 'Lekton', monospace;
   }
 
   .board-box {

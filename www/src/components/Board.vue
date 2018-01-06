@@ -28,7 +28,7 @@
           <div v-for="(list, i) in lists" class="list-div">
             <div class="panel panel-default list-panel">
               <div class="panel-heading">
-                <div class="pull-right">
+                <div class="pull-right lister">
                   <!-- <span @click="removeBoard(board)" class="glyphicon glyphicon-trash"></span> -->
                   <span @click="removeList(list)" class="glyphicon glyphicon-trash action-delete"></span>
                 </div>
@@ -170,6 +170,9 @@
 
   .add-list-button {
     width: 400px;
+  }
+  .lister {
+    font-family: 'Overpass Mono', monospace;
   }
 
   h1 {

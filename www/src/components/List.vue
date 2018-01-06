@@ -33,7 +33,7 @@
 
         <div v-for="task in taskLists">
             <div class="thumbnail task-div">
-                <div class="pull-right">
+                <div class="pull-right task">
                     <span @click="removeTask(task._id)" class="glyphicon glyphicon-trash trash-icon action-delete"></span>
                 </div>
                 <task :task="task" :list="list"></task>
@@ -106,8 +106,15 @@
 </script>
 
 <style>
+    @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono');
     .task-div{
-        background-color: rgb(108, 108, 108)
+        background-color: #80b6e5;
+    }
+    .task {
+        font-family: 'Overpass Mono', monospace;
+    }
+    .form {
+        font-family: 'Overpass Mono', monospace;
     }
     .trash-icon{
         color: white;
