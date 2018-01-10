@@ -146,9 +146,13 @@
         white-space: normal;
     }
 
+    .task-div {
+        color:black;
+    }
+
     .task-title {
         font-weight: bold;
-        color: rgb(255, 255, 255);
+        color:black;
     }
 
     .task-buttons {

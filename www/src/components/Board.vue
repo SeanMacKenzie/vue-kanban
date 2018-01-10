@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div class="text-center">
+      <div class="text-center board">
         <h1>{{board.name}}</h1>
         <h3>{{board.description}}</h3>
 
@@ -32,7 +32,7 @@
                   <!-- <span @click="removeBoard(board)" class="glyphicon glyphicon-trash"></span> -->
                   <span @click="removeList(list)" class="glyphicon glyphicon-trash action-delete"></span>
                 </div>
-                {{list.name}}
+                <b>{{list.name}}</b>
               </div>
               <div class="panel-body">
                 <list :list="list"></list>
@@ -139,6 +139,18 @@
     transition: all .3s linear;
   }
 
+  .board {
+    color: white;
+  }
+
+  .panel-heading {
+    background-color: #80b6e5;
+  }
+
+  .panel {
+    background-color: #999999;
+  }
+
   .action:hover {
     opacity: 1
   }
@@ -155,7 +167,7 @@
     font-size: 200px;
     line-height: 500px;
     width: 368px;
-    background-color: white;
+    background-color: #999999;
     border: none;
   }
 

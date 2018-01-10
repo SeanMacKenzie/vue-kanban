@@ -109,6 +109,7 @@
     @import url('https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono');
     .task-div{
         background-color: #80b6e5;
+        color: white;
     }
     .task {
         font-family: 'Overpass Mono', monospace;
@@ -119,6 +120,8 @@
     .trash-icon{
         color: white;
     }
+
+  
     .action-delete {
         cursor: pointer;
         opacity: .7;

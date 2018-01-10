@@ -3,6 +3,7 @@
         <h5 class="text-danger" v-if="error">
             <b>Incorrect e-mail or password. Please try again.</b>
         </h5>
+        <div class="row above"></div>
         <div class="row alpha">
             <div class="login-box thumbnail col-sm-4 col-sm-offset-4">
                 <h1>proBoards</h1>
@@ -111,6 +112,15 @@
         cursor: pointer;
         opacity: .7;
         transition: all .3s linear;
+    }
+
+    .above {
+        min-height: 5vh;
+    }
+
+    .container-fluid {
+        background-color: #333333;
+        min-height: 100vh;
     }
 
     .action:hover {
