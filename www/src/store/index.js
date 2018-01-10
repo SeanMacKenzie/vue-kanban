@@ -40,19 +40,18 @@ var store = new vuex.Store({
       state.boards = data
     },
     setLists(state, data) {
-      // console.log('inside setlists', data)
+      
       state.activeLists = data
     },
     setTasks(state, data) {
-      // console.log(data)
+      
       vue.set(state.activeTasks, data.listId, data.tasks)
-      //state.activeTasks[data[0].listId] = data
-      console.log(state.activeTasks)
+      
     },
     setComments(state, data) {
-      // debugger
+      
       vue.set(state.activeComments, data.taskId, data.comments)
-      console.log("Active comments: ", state.activeComments)
+      
     },
     handleError(state, err) {
       state.error = err
@@ -152,7 +151,7 @@ var store = new vuex.Store({
     getLists({ commit, dispatch }, boardId) {
       api('boards/' + boardId + '/lists')
         .then(res => {
-          // console.log("inside getlists:", res)
+         
           commit('setLists', res.data.data)
         })
         .catch(err => {
@@ -180,10 +179,10 @@ var store = new vuex.Store({
 
     //Task Stuff
     getTasks({ commit, dispatch }, task) {
-      console.log('getting tasks from: ', task.listId)
+      
       api('boards/' + task.boardId + '/lists/' + task.listId + '/tasks')
         .then(res => {
-          // console.log("inside gettasks:", res)
+         
           commit('setTasks', { listId: task.listId, tasks: res.data.data })
         })
         .catch(err => {
@@ -228,11 +227,11 @@ var store = new vuex.Store({
 
     getComments({ commit, dispatch }, comment) {
       // debugger
-      console.log('getting comments from: ', comment.taskId)
+      
       api('boards/' + comment.boardId + '/lists/' + comment.listId + '/tasks/' + comment.taskId + '/comments')
         // boards/:boardId/lists/:listId/tasks/:taskId/comments <- custom route for above
         .then(res => {
-          console.log("inside getComments:", res)
+          
           commit('setComments', { taskId: comment.taskId, comments: res.data.data })
           // debugger
         })
