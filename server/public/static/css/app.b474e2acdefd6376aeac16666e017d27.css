@@ -1,4 +1,4 @@
-
+@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono);@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono);@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono);@import url(https://fonts.googleapis.com/css?family=Julius+Sans+One|Lekton|Overpass+Mono|Rock+Salt|Ubuntu+Mono);
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,12 +29,22 @@
 
 
 .top-bar {
-  background-color: rgba(0, 255, 234, 1);
+  background-color: #80b6e5;
   margin-bottom: 25px;
+}
+.form {
+  font-family: 'Overpass Mono', monospace;
+}
+h4 {
+  font-family: 'Overpass Mono', monospace;
+}
+.title {
+  font-family: 'Rock Salt', cursive;
 }
 .h3-custom {
   margin-top: 10px;
   margin-bottom: 10px;
+  font-family: 'Lekton', monospace;
 }
 .board-box {
   /* overflow: auto; */
@@ -54,51 +64,24 @@
   line-height: 213px;
 }
 
-/* .jumbotron {
-  height: 300px;
-  border-top: 0;
-  margin-top: 0;
-} */
 
 .action {
   cursor: pointer;
   opacity: .7;
   transition: all .3s linear;
 }
+.board {
+  color: white;
+}
+.panel-heading {
+  background-color: #80b6e5;
+}
+.panel {
+  background-color: #999999;
+}
 .action:hover {
   opacity: 1
 }
-
-/* .panel { */
-
-/* text-overflow: ellipsis; */
-
-/* display: inline-flex; */
-
-/* text-align: center; */
-
-/* justify-content: center; */
-
-/* margin-inline-end: 5px; */
-
-/* min-height: 400px; */
-
-/* width: 200px; */
-
-/* } */
-
-/* .inl-flex {
-  display: inline-flex;
-  margin-inline-end: 5px;
-  min-height: 400px;
-  width: 200px;
-} */
-
-/* .list-panel {
-  overflow: auto;
-  height: 600px;
-  width: 200px;
-} */
 .list-div {
   display: inline-block;
   vertical-align: top;
@@ -110,7 +93,7 @@
   font-size: 200px;
   line-height: 500px;
   width: 368px;
-  background-color: white;
+  background-color: #999999;
   border: none;
 }
 .list-row {
@@ -123,18 +106,25 @@
 .add-list-button {
   width: 400px;
 }
-
-/* .container {
-  margin-top: 0px;
-  padding-top: 0px;
-} */
-
-/* .jumbotron {
-  height: 100px
-} */
+.lister {
+  font-family: 'Overpass Mono', monospace;
+}
+h1 {
+  font-family: 'Rock Salt', cursive;
+}
+h3 {
+  font-family: 'Overpass Mono', monospace;
+}
 
 .task-div{
-    background-color: rgb(108, 108, 108)
+    background-color: #80b6e5;
+    color: white;
+}
+.task {
+    font-family: 'Overpass Mono', monospace;
+}
+.form {
+    font-family: 'Overpass Mono', monospace;
 }
 .trash-icon{
     color: white;
@@ -154,9 +144,12 @@
     word-wrap: break-all;
     white-space: normal;
 }
+.task-div {
+    color:black;
+}
 .task-title {
     font-weight: bold;
-    color: rgb(255, 255, 255);
+    color:black;
 }
 .task-buttons {
     display: inline-block;
@@ -170,8 +163,25 @@
     opacity: .7;
     transition: all .3s linear;
 }
+.above {
+    min-height: 5vh;
+}
+.container-fluid {
+    background-color: #333333;
+    min-height: 100vh;
+}
 .action:hover {
     opacity: 1
 }
+.alpha {
+    background-color: #80b6e5;
+    padding-top: 3%;
+}
+.login-box {
+    font-family: 'Overpass Mono', monospace;
+}
+h1{
+    font-family: 'Rock Salt', cursive;
+}
 
-/*# sourceMappingURL=app.5f836347b4db56ea892eb16b242ed6c7.css.map*/
+/*# sourceMappingURL=app.b474e2acdefd6376aeac16666e017d27.css.map*/
